@@ -1,0 +1,4 @@
+webull-openapi-python-sdk>=3.0.2
+yfinance>=0.2.50
+pandas>=2.0
+numpy>=1.24

@@ -1,0 +1,18 @@
+[Unit]
+Description=Webull trend bot (SPY/QQQ/GLD)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/webull-bot
+ExecStart=/opt/webull-bot/venv/bin/python main.py run
+Restart=on-failure
+RestartSec=60
+# don't hammer Webull if something is badly wrong
+StartLimitIntervalSec=3600
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
